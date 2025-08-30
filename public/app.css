@@ -1,0 +1,77 @@
+:root{
+  --bg1:#0b1220;
+  --bg2:#0e1630;
+  --surface:#0f172a;
+  --panel:#121a33;
+  --muted:#9aa4b2;
+  --text:#e7eef7;
+  --primary:#4b7cff;
+  --danger:#e24d4d;
+  --success:#18b27a;
+  --border:#1c2840;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+.container{max-width:1200px;margin:0 auto;padding:18px}
+
+.topbar{position:sticky;top:0;z-index:10;background:rgba(15,23,42,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+.search{min-width:260px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:8px 14px;color:var(--text);outline:none}
+
+.board-controls{display:flex;justify-content:space-between;gap:12px;margin-top:16px;align-items:center;flex-wrap:wrap}
+.board-select, .board-create{display:flex;gap:10px;align-items:center}
+select, input[type='text'], input[type='date'], textarea{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+textarea{resize:vertical}
+
+.btn{border:1px solid var(--border);background:var(--panel);color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer;box-shadow:var(--shadow);transition:transform .1s ease, filter .1s ease}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:linear-gradient(180deg,#5a8bff,#3b6eff)}
+.btn.danger{background:#e24d4d;border-color:#d03b3b}
+.btn.ghost{background:transparent;border:1px dashed var(--border)}
+
+.kanban{margin-top:14px}
+.columns-toolbar{margin-bottom:10px}
+
+.columns{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;padding:4px}
+.col{min-width:310px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:12px;display:flex;flex-direction:column;position:relative}
+.col.dragging{opacity:.6}
+.col-placeholder{min-width:310px;height:220px;border:2px dashed #4b7cff;border-radius:var(--radius)}
+
+.col-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.col-handle{cursor:grab;padding:4px;border:1px dashed var(--border);border-radius:8px;opacity:.7}
+.col-title{font-weight:700;font-size:16px;flex:1}
+.col-count{color:var(--muted);font-size:12px}
+.col-actions{display:flex;gap:6px}
+.col-actions .btn{padding:6px 10px;box-shadow:none}
+
+.card-list{display:flex;flex-direction:column;gap:10px;min-height:20px}
+.card{background:linear-gradient(180deg,#0f1b36,#0e1730);border:1px solid var(--border);border-radius:12px;padding:12px;cursor:grab;transition:transform .06s ease, box-shadow .06s ease}
+.card:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.card .title{font-weight:700}
+.card .desc{margin-top:6px;color:#b7c3d1;font-size:13px}
+.card .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.badge{padding:2px 8px;border-radius:999px;font-size:11px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06)}
+.badge.date{background:transparent;border:1px dashed rgba(255,255,255,.2)}
+.badge.overdue{border-color:#ff7c7c;color:#ff9c9c}
+
+.add-card{display:flex;gap:8px;margin-top:10px}
+.add-card input{flex:1}
+
+.card-form{min-width:min(680px,96vw);display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card-form h3{grid-column:1/-1;margin:0}
+.card-form textarea{grid-column:1/-1}
+menu{display:flex;gap:10px;margin:0;padding:0}
+dialog{border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,#111b35,#10182f);color:var(--text);padding:18px}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+
+.muted{color:var(--muted);font-size:14px;margin-top:20px}
+
+@media (max-width: 900px){
+  .columns{gap:12px}
+  .col{min-width:280px}
+}

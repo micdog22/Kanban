@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>MicDog Kanban</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./app.css" />
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 14.59L9.41 13L11 11.41l2 2l4-4L18.59 11Z"/></svg>
+        <span>MicDog Kanban</span>
+      </div>
+      <div class="actions">
+        <input id="search" class="search" type="search" placeholder="Buscar cartões ou labels..." />
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="board-controls">
+      <div class="board-select">
+        <select id="boardSelect"></select>
+        <button id="btnDeleteBoard" class="btn danger">Excluir board</button>
+      </div>
+      <div class="board-create">
+        <input type="text" id="boardName" placeholder="Novo board: nome" />
+        <button id="btnCreateBoard" class="btn primary">Criar board</button>
+      </div>
+    </section>
+
+    <section class="kanban">
+      <div class="columns-toolbar">
+        <button id="btnAddColumn" class="btn ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M11 11V6h2v5h5v2h-5v5h-2v-5H6v-2z"/></svg>
+          Nova coluna
+        </button>
+      </div>
+      <div id="columns" class="columns" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog id="dlgCard">
+    <form method="dialog" id="formCard" class="card-form">
+      <h3>Editar cartão</h3>
+      <input type="hidden" name="id" />
+      <label>Título
+        <input type="text" name="title" required />
+      </label>
+      <label>Data (YYYY-MM-DD)
+        <input type="date" name="due_date" />
+      </label>
+      <label>Labels (separadas por vírgula)
+        <input type="text" name="labels" />
+      </label>
+      <label>Descrição
+        <textarea name="description" rows="6"></textarea>
+      </label>
+      <menu>
+        <button type="submit" class="btn primary">Salvar</button>
+        <button type="button" class="btn" id="btnCloseCard">Cancelar</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <footer class="container muted">
+    <p>PHP + HTML/JS. SQLite. Sem dependências externas.</p>
+  </footer>
+</body>
+</html>
