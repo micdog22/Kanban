@@ -1,4 +1,4 @@
-# MicDog Kanban (PHP + HTML/JS) – Edição Premium
+# MicDog Kanban (PHP + HTML/JS): Edição Premium
 
 Kanban visual moderno com drag-and-drop suave, multi-boards, labels coloridas, datas e busca.
 Backend em PHP + SQLite (zero dependência), frontend HTML/JS/CSS com animações e design caprichado.
